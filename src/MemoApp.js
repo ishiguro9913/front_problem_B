@@ -1,35 +1,34 @@
 import React from "react";
 import { render } from "react-dom";
 
-class Form extends React.Component {
+import Form from "./components/Form";
+import List from "./components/List";
+
+class MemoApp extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { content: "content" };
+    this.state = {
+      memos: [
+        { id: 1, content: "one" },
+        { id: 2, content: "two" },
+        { id: 3, content: "three" },
+        { id: 4, content: "four" },
+        { id: 5, content: "five" }
+      ],
+      nextId: 0
+    };
   }
 
   render() {
     return (
       <div>
-        <h2>Form</h2>
-        <form onSubmit={this.hamdleSubmit}>
-          <input value={this.state.content} onChange={this.handleChange} />
-          <input type="submit" value="Add Memo" />
-        </form>
+        <h2>MemoApp</h2>
+        <Form />
+        <List memos={this.state.memos} />
       </div>
     );
   }
-
-  handleChange = event => {
-    const content = event.target.value;
-    this.setState({ content: content });
-  };
-
-  hamdleSubmit = event => {
-    event.preventDefault();
-    alert(this.state.content);
-    this.setState({ content: "" });
-  };
 }
 
-export default Form;
+export default MemoApp;

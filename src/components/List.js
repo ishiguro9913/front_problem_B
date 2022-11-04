@@ -7,7 +7,19 @@ class List extends React.Component {
   }
 
   render() {
-    return <h3>List</h3>;
+    const list = this.props.memos.map(memo => {
+      return (
+        <li>
+          #{memo.id} - {memo.content}
+        </li>
+      );
+    });
+    return (
+      <div>
+        <h2>List</h2>
+        {list}
+      </div>
+    );
   }
 }
 
