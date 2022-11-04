@@ -1,23 +1,35 @@
 import React from "react";
 import { render } from "react-dom";
 
-import Form from "./components/Form";
-import List from "./components/List";
-
-class MemoApp extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { content: "content" };
   }
 
   render() {
     return (
       <div>
-        <h2>MemoApp</h2>
-        <Form />
-        <List />
+        <h2>Form</h2>
+        <form onSubmit={this.hamdleSubmit}>
+          <input value={this.state.content} onChange={this.handleChange} />
+          <input type="submit" value="Add Memo" />
+        </form>
       </div>
     );
   }
+
+  handleChange = event => {
+    const content = event.target.value;
+    this.setState({ content: content });
+  };
+
+  hamdleSubmit = event => {
+    event.preventDefault();
+    alert(this.state.content);
+    this.setState({ content: "" });
+  };
 }
 
-export default MemoApp;
+export default Form;
