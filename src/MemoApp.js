@@ -10,12 +10,14 @@ class MemoApp extends React.Component {
 
     this.state = {
       memos: []
+      nextId: 0
     };
   }
 
   addMemo = content => {
     this.setState({
-      memos: [...this.state.memos, { content: content }],
+      memos: [...this.state.memos, { id: this.state.nextId, content: content }],
+      nextId: this.state.nextId + 1
     });
   };
 
