@@ -10,10 +10,10 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class='form'>
         <form onSubmit={this.hamdleSubmit}>
-          <input value={this.state.content} onChange={this.handleChange} />
-          <input type="submit" value="Add Memo" />
+          <input type="text" value={this.state.content} onChange={this.handleChange} />
+          <input type="submit" value="追加" />
         </form>
       </div>
     );

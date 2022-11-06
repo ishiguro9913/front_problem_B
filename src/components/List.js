@@ -10,13 +10,13 @@ class List extends React.Component {
     const list = this.props.memos.map(memo => {
       return (
         <li>
+          <button onClick={() => this.props.deleteMemo(memo.id)}>X</button>  
           {memo.content}
-          <button onClick={() => this.props.deleteMemo(memo.id)}>delete</button>  
         </li>
       );
     });
     return (
-      <div>
+      <div class='list'>
         {list}
       </div>
     );
