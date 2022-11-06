@@ -5,13 +5,12 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { content: "content" };
+    this.state = { content: "" };
   }
 
   render() {
     return (
       <div>
-        <h2>Form</h2>
         <form onSubmit={this.hamdleSubmit}>
           <input value={this.state.content} onChange={this.handleChange} />
           <input type="submit" value="Add Memo" />
@@ -27,7 +26,7 @@ class Form extends React.Component {
 
   hamdleSubmit = event => {
     event.preventDefault();
-    alert(this.state.content);
+    this.props.addMemo(this.state.content);
     this.setState({ content: "" });
   };
 }
