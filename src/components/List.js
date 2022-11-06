@@ -10,13 +10,12 @@ class List extends React.Component {
     const list = this.props.memos.map(memo => {
       return (
         <li>
-          #{memo.id} - {memo.content}
+          {memo.content}
         </li>
       );
     });
     return (
       <div>
-        <h2>List</h2>
         {list}
       </div>
     );
