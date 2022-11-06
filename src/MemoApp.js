@@ -24,7 +24,6 @@ class MemoApp extends React.Component {
   render() {
     return (
       <div>
-        <h2>MemoApp</h2>
         <Form addMemo={this.addMemo} />
         <List memos={this.state.memos} />
       </div>

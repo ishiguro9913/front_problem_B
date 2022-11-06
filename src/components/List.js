@@ -16,7 +16,6 @@ class List extends React.Component {
     });
     return (
       <div>
-        <h2>List</h2>
         {list}
       </div>
     );
