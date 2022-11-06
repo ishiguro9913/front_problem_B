@@ -9,7 +9,7 @@ class MemoApp extends React.Component {
     super(props);
 
     this.state = {
-      memos: []
+      memos: [],
       nextId: 0
     };
   }
@@ -21,11 +21,18 @@ class MemoApp extends React.Component {
     });
   };
 
+  deleteMemo = id => {
+    const filteredArray = this.state.memos.filter(memo => {
+      return memo.id !== id;
+    });
+    this.setState({ memos: filteredArray });
+  };
+
   render() {
     return (
       <div>
         <Form addMemo={this.addMemo} />
-        <List memos={this.state.memos} />
+        <List memos={this.state.memos} deleteMemo={this.deleteMemo} />
       </div>
     );
   }

@@ -11,6 +11,7 @@ class List extends React.Component {
       return (
         <li>
           {memo.content}
+          <button onClick={() => this.props.deleteMemo(memo.id)}>delete</button>  
         </li>
       );
     });
